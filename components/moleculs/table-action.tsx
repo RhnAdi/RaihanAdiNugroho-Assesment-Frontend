@@ -4,6 +4,7 @@ import React from 'react';
 // import PrintButton from '@components/ui/Table/Action/PrintButton';
 import { AccessorKeyColumnDef, ColumnDef } from '@tanstack/react-table';
 import PrintButton from '../ui/PrintButton';
+import ExportButton from '../ui/ExportButton';
 
 export interface TableActionProps {
   data: any[];
@@ -13,15 +14,13 @@ export interface TableActionProps {
 
 const TableAction: React.FC<TableActionProps> = ({
   data,
-  showExport = true,
   columns
 }) => (
   <div className="flex justify-between gap-2 z-20">
     <div className="flex gap-2 flex-1 w-full">
       <div className="flex items-center w-full h-full gap-2">
-        {showExport && (
-          <PrintButton data={data} columns={columns as ColumnDef<any>[]} />
-        )}
+        <PrintButton data={data} columns={columns as ColumnDef<any>[]} />
+        <ExportButton data={data} columns={columns as ColumnDef<any>[]} />
       </div>
     </div>
   </div>
